@@ -8,16 +8,17 @@ function render(features, option) {
 
   const canvas = createCanvas(size, size);
   const ctx = canvas.getContext("2d");
-  ctx.antialias = option.antialias || "default";
+  ctx.antialias = option.antialias || "none";
   ctx.quality = "nearest";
   ctx.patternQuality = "nearest";
   ctx.imageSmoothingEnabled = false;
   ctx.imageRendering = "pixelated";
+  debugger;
 
   ctx.clearRect(0, 0, size, size);
   border(ctx, option.border, size);
   ctx.strokeStyle = option.stroke || "none";
-  ctx.lineWidth = 5;
+  ctx.lineWidth = 1;
   drawGeometries(ctx, features, scaling);
 
   return canvas.toBuffer();
