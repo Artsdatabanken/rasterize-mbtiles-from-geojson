@@ -5,7 +5,7 @@ const render = require("./render");
 class Map {
   constructor(fn) {
     const gj = geojson.read(fn);
-    const zoom = 6;
+    const zoom = 9;
     const options = {
       maxZoom: zoom,
       indexMaxZoom: zoom,
@@ -21,8 +21,7 @@ class Map {
     var tile = this.tileIndex.getTile(parseInt(z), parseInt(x), parseInt(y));
     if (!tile) return null;
     const f = tile.features;
-    return render(f, {});
-    //    return JSON.stringify(f);
+    return render(f, { stroke: "#f0f", antialias: "nearest" });
   }
 
   list() {

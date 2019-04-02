@@ -24,7 +24,7 @@ function convert(baseName) {
   let watermark = 1;
 
   json.features.forEach(f => {
-    const kode = f.properties.kode;
+    const kode = f.properties.kode.replace("LA", "NN-LA-TI");
     if (!keys[kode]) {
       keys[kode] = watermark;
       watermark++;
@@ -36,6 +36,7 @@ function convert(baseName) {
   });
   //  console.log(keys);
 
-  fs.writeFileSync(baseName + "_colors.json", JSON.stringify(keys));
+  basename = basename.toLowerCase();
+  fs.writeFileSync(baseName + "_index.json", JSON.stringify(keys));
   fs.writeFileSync(baseName + ".geojson", JSON.stringify(json));
 }
