@@ -3,9 +3,8 @@ const geojsonvt = require("geojson-vt");
 const render = require("./render");
 
 class Map {
-  constructor(fn) {
+  constructor(fn, zoom = 9) {
     const gj = geojson.read(fn);
-    const zoom = 10;
     const options = {
       maxZoom: zoom,
       indexMaxZoom: zoom,
@@ -21,7 +20,7 @@ class Map {
     var tile = this.tileIndex.getTile(parseInt(z), parseInt(x), parseInt(y));
     if (!tile) return null;
     const f = tile.features;
-    return render(f, { stroke: "#f0f", antialias: "nearest" });
+    return render(f, { stroke: "#f0f", antialias: "none" });
   }
 
   list() {
