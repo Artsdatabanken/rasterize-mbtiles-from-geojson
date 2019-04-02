@@ -10,9 +10,11 @@
   "author": "Bjorn Reppen <bjreppen@gmail.com> (https://github.com/bjornreppen)",
   "license": "ISC",
   "dependencies": {
+    "better-sqlite3": "^5.4.0",
     "express": "^4.16.4",
     "geojson-vt": "^3.2.1",
     "log-less-fancy": "^1.4.0",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "sqlite3": "^4.0.6"
   }
 }
