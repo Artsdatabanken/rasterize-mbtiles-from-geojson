@@ -17,7 +17,12 @@ coords.forEach(co => {
   const png = map.render(co.z, co.y, co.x);
   save(dbPath, co, png);
 });
-const z = db.close();
+
+// 4.954937,58.015944,29.998769,70.526182
+
+const bounds = map.bounds.join(",");
+db.exec(`UPDATE metadata SET VALUE='${bounds}' WHERE name='bounds'`);
+db.close();
 
 function save(dbPath, tileCoord, png) {
   const row = (2 << (tileCoord.z - 1)) - 1 - tileCoord.y;
