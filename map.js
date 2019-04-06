@@ -3,7 +3,7 @@ const geojsonvt = require("geojson-vt");
 const render = require("./render");
 
 class Map {
-  constructor(fn, maxzoom = 9) {
+  constructor(fn, maxzoom = 5) {
     const gj = geojson.read(fn);
     const options = {
       maxZoom: maxzoom,
@@ -13,7 +13,6 @@ class Map {
     this.tileIndex = geojsonvt(gj, options);
     this.bounds = getBounds(gj);
     this.maxzoom = maxzoom;
-    debugger;
   }
 
   render(z, y, x) {
