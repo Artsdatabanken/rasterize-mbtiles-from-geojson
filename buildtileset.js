@@ -11,18 +11,25 @@ db.exec("DELETE FROM tiles");
 const cmd = db.prepare("INSERT INTO tiles VALUES (?,?,?,?)");
 
 const geojsonFile = "LA_4326.geojson";
-const map = new Map(geojsonFile, 11);
+const map = new Map(geojsonFile, 5);
 const coords = map.tileCoords();
 coords.forEach(co => {
   const png = map.render(co.z, co.y, co.x);
   save(dbPath, co, png);
 });
 
-// 4.954937,58.015944,29.998769,70.526182
-
-const bounds = map.bounds.join(",");
-db.exec(`UPDATE metadata SET VALUE='${bounds}' WHERE name='bounds'`);
+writeMeta("bounds", map.bounds.join(","));
+writeMeta("maxzoom", map.maxzoom);
+writeMeta("format", "png");
 db.close();
+
+function writeMeta(name, value) {
+  db.exec(`UPDATE metadata SET VALUE='${value}' WHERE name='${name}'`);
+}
+
+function createMbtilesFile() {
+  db.exec("CREATE TABLE metadata (name text, value text)");
+}
 
 function save(dbPath, tileCoord, png) {
   const row = (2 << (tileCoord.z - 1)) - 1 - tileCoord.y;
