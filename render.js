@@ -13,7 +13,6 @@ function render(features, option) {
   ctx.patternQuality = "nearest";
   ctx.imageSmoothingEnabled = false;
   ctx.imageRendering = "pixelated";
-  debugger;
 
   ctx.clearRect(0, 0, size, size);
   border(ctx, option.border, size);
