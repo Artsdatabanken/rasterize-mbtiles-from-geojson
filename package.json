@@ -15,7 +15,7 @@
   ],
   "license": "MIT",
   "main": "go2.js",
-  "name": "rasterize",
+  "name": "rasterize-mbtiles-from-geojson",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
