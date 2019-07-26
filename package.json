@@ -1,19 +1,23 @@
 {
-  "name": "rasterize",
-  "version": "1.0.0",
-  "description": "",
-  "main": "go2.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
   "author": "Bjorn Reppen <bjreppen@gmail.com> (https://github.com/bjornreppen)",
-  "license": "ISC",
   "dependencies": {
     "better-sqlite3": "^5.4.0",
     "express": "^4.16.4",
     "geojson-vt": "^3.2.1",
     "log-less-fancy": "^1.4.0",
     "minimist": "^1.2.0"
-  }
+  },
+  "description": "",
+  "keywords": [
+    "mbtiles",
+    "raster-tiles",
+    "geojson"
+  ],
+  "license": "MIT",
+  "main": "go2.js",
+  "name": "rasterize",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
 }
