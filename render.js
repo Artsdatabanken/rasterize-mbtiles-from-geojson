@@ -30,7 +30,7 @@ function drawGeometries(ctx, features, scaling) {
     //    g = 1;
     //  b = idx % 2 === 1 ? 289 - 256 : 291 - 256;
     ctx.fillStyle = `rgb(0,${g},${b})`;
-    ctx.strokeStyle = ctx.fillStyle;
+    //ctx.strokeStyle = ctx.fillStyle;
     feature.geometry.forEach(geom =>
       drawGeometry(ctx, feature.type, geom, scaling)
     );
@@ -62,10 +62,10 @@ function drawGeometry(ctx, type, geom, scaling) {
   geom.forEach(coord => {
     ctx.lineTo(coord[0] * scaling, coord[1] * scaling);
   });
+  ctx.fill();
   // HACK: Gap between polygons - why?
   ctx.stroke();
   // HACK: end
-  ctx.fill();
 }
 
 module.exports = render;
