@@ -5,7 +5,7 @@
     "express": "^4.16.4",
     "geojson-vt": "^3.2.1",
     "log-less-fancy": "^1.4.0",
-    "minimist": "^1.2.3"
+    "minimist": "^1.2.6"
   },
   "description": "",
   "keywords": [
