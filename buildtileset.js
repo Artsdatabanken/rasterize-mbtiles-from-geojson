@@ -4,7 +4,7 @@ const Map = require("./map");
 const Mbtiles = require("./mbtiles");
 
 const dbPath = "raster_indexed.3857.mbtiles";
-const geojsonFile = "LA_4326.geojson";
+const geojsonFile = "polygon.4326.geojson"; //"LA_4326.geojson";
 const maxzoom = 12;
 
 const mbtiles = new Mbtiles(dbPath);
